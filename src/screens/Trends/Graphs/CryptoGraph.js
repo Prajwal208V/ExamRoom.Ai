@@ -2,66 +2,56 @@ import {
   StyleSheet,
   View,
   Text,
-  ScrollView,
-  Dimensions,
   Platform,
   TouchableOpacity,
   Image,
-} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import IrisTheme from '../../../common/Iris/Styles/IrisTheme';
-import {useSelector, useDispatch} from 'react-redux';
-import {
-  VictoryChart,
-  VictoryLine,
-  VictoryTooltip,
-  VictoryAxis,
-  VictoryScatter,
-  Background,
-  createContainer,
-  Line,
-  VictoryCursorContainer,
-} from 'victory-native';
-import DeviceInfo from 'react-native-device-info';
-import {fetchCrypto} from '../../../store/slices/Trends/CryptoSlice';
-import Toast from 'react-native-simple-toast';
-import TrendsModal from './helper';
+} from "react-native"
+import React, { useState, useEffect } from "react"
+import IrisTheme from "../../../common/Iris/Styles/IrisTheme"
+import { useSelector, useDispatch } from "react-redux"
+import { fetchCrypto } from "../../../store/slices/Trends/CryptoSlice"
+import Toast from "react-native-simple-toast"
+import TrendsModal from "./helper"
 
 const CryptoGraph = () => {
-  const dispatch = useDispatch();
-  const cryptoData = useSelector(state => state.crypto);
-  const [selectedFun, setSelectedFun] = useState('Daily');
-  const [fecthError, setfecthError] = useState('');
+  const dispatch = useDispatch()
+  const cryptoData = useSelector((state) => state.crypto)
+  const [selectedFun, setSelectedFun] = useState("Daily")
+  const [fecthError, setfecthError] = useState("")
+  const [daysData, setDaysData] = useState([])
+  const [weeksData, setWeeksData] = useState([])
+  const [monthsData, setMonthsData] = useState([])
 
   useEffect(() => {
-    setfecthError(cryptoData?.error);
-    if (cryptoData?.error !== '') {
-      Toast.show(cryptoData?.error, Platform.OS === 'android' ? 0.5 : 1);
+    setfecthError(cryptoData?.error)
+    if (cryptoData?.error !== "") {
+      Toast.show(cryptoData?.error, Platform.OS === "android" ? 0.5 : 1)
     }
-  }, [cryptoData?.error]);
+  }, [cryptoData?.error])
 
-  const fetchData = type => {
-    if (type === 'Daily') {
+  const fetchData = (type) => {
+    setSelectedFun(type)
+    if (type === "Daily") {
       if (!(cryptoData?.cryptoDaysData?.length > 0)) {
-        dispatch(fetchCrypto({type: 'Daily'}));
+        dispatch(fetchCrypto({ type: "Daily" }))
       }
-    } else if (type === 'weekly') {
+    } else if (type === "weekly") {
       if (!(cryptoData?.cryptoWeeksData?.length > 0)) {
-        dispatch(fetchCrypto({type: 'weekly'}));
+        dispatch(fetchCrypto({ type: "weekly" }))
       }
-    } else if (type === 'monthly') {
+    } else if (type === "monthly") {
       if (!(cryptoData?.cryptoMonthsData?.length > 0)) {
-        dispatch(fetchCrypto({type: 'monthly'}));
+        dispatch(fetchCrypto({ type: "monthly" }))
       }
     }
-    setSelectedFun(type);
-  };
+  }
+  console.log("cryptoDaysData", JSON.stringify(cryptoData?.cryptoDaysData))
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require('../../../assets/image/cryptoCion.png')}
+          source={require("../../../assets/image/cryptoCion.png")}
           style={styles.logo}
         />
         <View style={styles.padLeft}>
@@ -78,64 +68,70 @@ const CryptoGraph = () => {
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'Daily'
+            selectedFun === "Daily"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('Daily')}>
+          onPress={() => fetchData("Daily")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'Daily' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "Daily" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             Daily
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'weekly'
+            selectedFun === "weekly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('weekly')}>
+          onPress={() => fetchData("weekly")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'weekly' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "weekly" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             Weekly
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'monthly'
+            selectedFun === "monthly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('monthly')}>
+          onPress={() => fetchData("monthly")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'monthly' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "monthly" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             Monthly
           </Text>
         </TouchableOpacity>
       </View>
     </View>
-  );
-};
+  )
+}
 export default CryptoGraph;
 
 const styles = StyleSheet.create({

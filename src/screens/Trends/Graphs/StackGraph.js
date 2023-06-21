@@ -11,61 +11,54 @@ import {
 import React, {useState, useEffect} from 'react';
 import IrisTheme from '../../../common/Iris/Styles/IrisTheme';
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchStack} from '../../../store/slices/Trends/StackSlice';
-import {
-  VictoryChart,
-  VictoryLine,
-  VictoryTooltip,
-  VictoryAxis,
-  VictoryScatter,
-  Background,
-  createContainer,
-  Line,
-  VictoryCursorContainer,
-} from 'victory-native';
-import DeviceInfo from 'react-native-device-info';
-import Toast from 'react-native-simple-toast';
-import TrendsModal from './helper';
+import { fetchStack } from "../../../store/slices/Trends/StackSlice"
+import Toast from "react-native-simple-toast"
+import TrendsModal from "./helper"
 
 const StackGraph = () => {
-  const stackData = useSelector(state => state.stacks);
-  const dispatch = useDispatch();
-  console.log('stackDatastackData', JSON.stringify(stackData?.stackHoursData));
-  const [selectedFun, setSelectedFun] = useState('oneHour');
-  const [fecthError, setfecthError] = useState('');
+  const stackData = useSelector((state) => state.stacks)
+  const dispatch = useDispatch()
+  const [fecthError, setfecthError] = useState("")
+  const [selectedFun, setSelectedFun] = useState("oneHour")
+  const [minutesData, setMinutesData] = useState([])
+  const [hoursData, setHoursData] = useState([])
+  const [weeksData, setWeeksData] = useState([])
+  const [monthsData, setMonthsData] = useState([])
+
+  console.log("stackOneHourData", JSON.stringify(stackData?.stackOneHourData))
 
   useEffect(() => {
-    setfecthError(stackData?.error);
-    if (stackData?.error !== '') {
-      Toast.show(stackData?.error, Platform.OS === 'android' ? 0.5 : 1);
+    setfecthError(stackData?.error)
+    if (stackData?.error !== "") {
+      Toast.show(stackData?.error, Platform.OS === "android" ? 0.5 : 1)
     }
-  }, [stackData?.error]);
+  }, [stackData?.error])
 
-  const fetchData = type => {
-    if (type === 'oneHour') {
+  const fetchData = (type) => {
+    setSelectedFun(type)
+    if (type === "oneHour") {
+      if (!(stackData?.stackOneHourData?.length > 0)) {
+        dispatch(fetchStack({ type: "oneHour" }))
+      }
+    } else if (type === "hourly") {
       if (!(stackData?.stackHoursData?.length > 0)) {
-        dispatch(fetchStack({type: 'oneHour'}));
+        dispatch(fetchStack({ type: "hourly" }))
       }
-    } else if (type === 'hourly') {
-      if (!(stackData?.forexHoursData?.length > 0)) {
-        dispatch(fetchStack({type: 'hourly'}));
-      }
-    } else if (type === 'weekly') {
+    } else if (type === "weekly") {
       if (!(stackData?.stackWeeksData?.length > 0)) {
-        dispatch(fetchStack({type: 'weekly'}));
+        dispatch(fetchStack({ type: "weekly" }))
       }
-    } else if (type === 'montly') {
+    } else if (type === "montly") {
       if (!(stackData?.stackMonthsData?.length > 0)) {
-        dispatch(fetchStack({type: 'montly'}));
+        dispatch(fetchStack({ type: "montly" }))
       }
     }
-    setSelectedFun(type);
-  };
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require('../../../assets/image/stock.png')}
+          source={require("../../../assets/image/stock.png")}
           style={styles.logo}
         />
         <View style={styles.padLeft}>
@@ -82,83 +75,91 @@ const StackGraph = () => {
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'oneHour'
+            selectedFun === "oneHour"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('oneHour')}>
+          onPress={() => fetchData("oneHour")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'oneHour' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "oneHour" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             1Hr
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'hourly'
+            selectedFun === "hourly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('hourly')}>
+          onPress={() => fetchData("hourly")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'hourly' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "hourly" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             24Hr
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'weekly'
+            selectedFun === "weekly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('weekly')}>
+          onPress={() => fetchData("weekly")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'weekly' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "weekly" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             Weekly
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === 'montly'
+            selectedFun === "montly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => fetchData('montly')}>
+          onPress={() => fetchData("montly")}
+        >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === 'montly' ? {color: IrisTheme.BG000} : {},
-            ]}>
+              selectedFun === "montly" ? { color: IrisTheme.BG000 } : {},
+            ]}
+          >
             Monthly
           </Text>
         </TouchableOpacity>
       </View>
     </View>
-  );
-};
+  )
+}
 export default StackGraph;
 
 const styles = StyleSheet.create({

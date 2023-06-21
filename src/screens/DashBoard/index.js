@@ -1,23 +1,27 @@
-import React from 'react';
-import {TouchableOpacity, View, Text, Platform} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import IrisTheme from '../../../src/common/Iris/Styles/IrisTheme';
-import DeviceInfo from 'react-native-device-info';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faBriefcase} from '@fortawesome/free-solid-svg-icons/faBriefcase';
-import {faMoneyBillTrendUp} from '@fortawesome/free-solid-svg-icons/faMoneyBillTrendUp';
-import JobPortalScreen from './JobPortal';
-import TrendsScreen from '../Trends';
+import React, { useEffect } from "react"
+import { TouchableOpacity, View, Text, Platform } from "react-native"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import IrisTheme from "../../../src/common/Iris/Styles/IrisTheme"
+import DeviceInfo from "react-native-device-info"
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome"
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons/faBriefcase"
+import { faMoneyBillTrendUp } from "@fortawesome/free-solid-svg-icons/faMoneyBillTrendUp"
+import JobPortalScreen from "./JobPortal"
+import { useSelector, useDispatch } from "react-redux"
+import TrendsScreen from "../Trends"
+import { fetchCrypto } from "../../store/slices/Trends/CryptoSlice"
+import { fetchForex } from "../../store/slices/Trends/ForexSlice"
+import { fetchStack } from "../../store/slices/Trends/StackSlice"
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 const options = {
   tabBarActiveTintColor: IrisTheme?.PRIMARY400,
   tabBarInactiveTintColor: IrisTheme?.BG500,
-  tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
-};
+  tabBarLabelStyle: { fontSize: 12, fontWeight: "500" },
+}
 
-const CustomTabButton = props => (
+const CustomTabButton = (props) => (
   <TouchableOpacity
     {...props}
     // style={
@@ -39,7 +43,7 @@ const CustomTabButton = props => (
       style={
         props.accessibilityState.selected
           ? {
-              position: 'absolute',
+              position: "absolute",
               height: 4,
               backgroundColor: IrisTheme.PRIMARY400,
               borderRadius: 2,
@@ -52,9 +56,25 @@ const CustomTabButton = props => (
     />
     {props.children}
   </TouchableOpacity>
-);
+)
 
-const TabNavigator = props => {
+const TabNavigator = (props) => {
+  const dispatch = useDispatch()
+  const cryptoDailyData = useSelector((state) => state.crypto?.cryptoDaysData)
+  const forexoneHourData = useSelector((state) => state.forex?.forexOneHourData)
+  const stackoneHourData = useSelector((state) => state.stacks?.stackHoursData)
+
+  useEffect(() => {
+    if (cryptoDailyData?.length === 0) {
+      dispatch(fetchCrypto({ type: "Daily" }))
+    }
+    if (forexoneHourData?.length === 0) {
+      dispatch(fetchForex({ type: "oneHour" }))
+    }
+    if (stackoneHourData?.length === 0) {
+      dispatch(fetchStack({ type: "oneHour" }))
+    }
+  }, [cryptoDailyData, forexoneHourData, stackoneHourData])
   return (
     <>
       <Tab.Navigator
@@ -62,38 +82,40 @@ const TabNavigator = props => {
         screenOptions={{
           headerShown: false,
           lazy: true,
-          tabBarStyle: DeviceInfo.isTablet() ? {height: 60} : {},
+          tabBarStyle: DeviceInfo.isTablet() ? { height: 60 } : {},
         }}
         initialRouteName="JobPortalScreen"
         tabBarOptions={
           DeviceInfo.isTablet()
             ? {
-                tabStyle: {flexDirection: 'column', height: 45},
+                tabStyle: { flexDirection: "column", height: 45 },
               }
-            : {tabStyle: {}}
-        }>
+            : { tabStyle: {} }
+        }
+      >
         <Tab.Screen
           name="JobPortalScreen"
           component={JobPortalScreen}
           options={{
             unmountOnBlur: true,
-            tabBarIcon: props => (
-              <View style={{paddingTop: 4}}>
+            tabBarIcon: (props) => (
+              <View style={{ paddingTop: 4 }}>
                 <FontAwesomeIcon
                   icon={faBriefcase}
                   color={props.color}
-                  size={Platform.OS === 'ios' ? 21 : 20}
+                  size={Platform.OS === "ios" ? 21 : 20}
                 />
               </View>
             ),
-            tabBarLabel: ({focused}) => (
+            tabBarLabel: ({ focused }) => (
               <Text
                 style={{
-                  fontWeight: focused ? '700' : '500',
+                  fontWeight: focused ? "700" : "500",
                   fontSize: 12,
                   color: focused ? IrisTheme?.PRIMARY400 : IrisTheme?.BG500,
                   marginLeft: 5,
-                }}>
+                }}
+              >
                 Jobs
               </Text>
             ),
@@ -112,23 +134,24 @@ const TabNavigator = props => {
           component={TrendsScreen}
           options={{
             unmountOnBlur: true,
-            tabBarIcon: props => (
-              <View style={{paddingTop: 4}}>
+            tabBarIcon: (props) => (
+              <View style={{ paddingTop: 4 }}>
                 <FontAwesomeIcon
                   icon={faMoneyBillTrendUp}
                   color={props.color}
-                  size={Platform.OS === 'ios' ? 21 : 20}
+                  size={Platform.OS === "ios" ? 21 : 20}
                 />
               </View>
             ),
-            tabBarLabel: ({focused}) => (
+            tabBarLabel: ({ focused }) => (
               <Text
                 style={{
-                  fontWeight: focused ? '700' : '500',
+                  fontWeight: focused ? "700" : "500",
                   fontSize: 12,
                   color: focused ? IrisTheme?.PRIMARY400 : IrisTheme?.BG500,
                   marginLeft: 5,
-                }}>
+                }}
+              >
                 Market
               </Text>
             ),
@@ -144,7 +167,7 @@ const TabNavigator = props => {
         />
       </Tab.Navigator>
     </>
-  );
-};
+  )
+}
 
-export default TabNavigator;
+export default TabNavigator

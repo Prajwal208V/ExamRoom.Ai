@@ -2,14 +2,13 @@ import {
   Image,
   Keyboard,
   KeyboardAvoidingView,
-  Linking,
   Platform,
   Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native"
 import React, {useCallback, useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -19,8 +18,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
 import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
 import {Formik, useFormikContext} from 'formik';
-import * as Yup from 'yup';
-import {useMMKVString} from 'react-native-mmkv';
+import * as Yup from "yup"
 import IrisTheme from '../../../src/common/Iris/Styles/IrisTheme';
 import {EventRegister} from 'react-native-event-listeners';
 import {useKeyboardHeight} from '../../../src/hooks/useKeyboardHeight';
