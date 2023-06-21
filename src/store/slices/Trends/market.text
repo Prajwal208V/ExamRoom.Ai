@@ -1,0 +1,85 @@
+// // stock
+// // 1 hour
+// params: {
+//   interval: '1min',
+//   function: 'TIME_SERIES_INTRADAY',
+//   symbol: 'MSFT',
+//   datatype: 'json',
+//   output_size: 'compact'
+// },
+// // 24 hours
+// params: {
+//   interval: '60min',
+//   function: 'TIME_SERIES_INTRADAY',
+//   symbol: 'MSFT',
+//   datatype: 'json',
+//   output_size: 'compact'
+// },
+// // weekly
+// params: {
+//   function: 'TIME_SERIES_WEEKLY_ADJUSTED',
+//   symbol: 'MSFT',
+//   datatype: 'json'
+// },
+
+// //monthly
+// params: {
+//   symbol: 'MSFT',
+//   function: 'TIME_SERIES_MONTHLY',
+//   datatype: 'json'
+// },
+
+// // forex
+// // 1 hour
+// params: {
+//   function: 'FX_INTRADAY',
+//   interval: '1min',
+//   to_symbol: 'USD',
+//   from_symbol: 'EUR',
+//   datatype: 'json',
+//   outputsize: 'compact'
+// },
+
+// // 24 hours
+// params: {
+//   function: 'FX_INTRADAY',
+//   interval: '60min',
+//   to_symbol: 'USD',
+//   from_symbol: 'EUR',
+//   datatype: 'json',
+//   outputsize: 'compact'
+// },
+
+// //weekly
+// params: {
+//   function: 'FX_WEEKLY',
+//   from_symbol: 'EUR',
+//   to_symbol: 'USD',
+//   datatype: 'json'
+// },
+
+// //monthly
+// params: {
+//   from_symbol: 'EUR',
+//   to_symbol: 'USD',
+//   function: 'FX_MONTHLY',
+//   datatype: 'json'
+// },
+
+// //crypto
+// // 1 hour
+// params: {
+//   market: 'CNY',
+//   symbol: 'BTC',
+//   function: 'DIGITAL_CURRENCY_DAILY'
+// },
+// params: {
+//   market: 'CNY',
+//   function: 'DIGITAL_CURRENCY_WEEKLY',
+//   symbol: 'BTC'
+// },
+
+// params: {
+//   function: 'DIGITAL_CURRENCY_MONTHLY',
+//   market: 'CNY'
+// },

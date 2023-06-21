@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./",
+    "paths": {
+      "@iris": ["src/common/Iris/index.js"],
+      "@containers/*": ["src/containers/*"],
+      "@validation/*": ["src/validation/*"],
+      "@support/*": ["src/supportFunctions/*"],
+      "@models/*": ["src/models/*"],
+      "@components/*": ["src/components/*"],
+      "@actions/*": ["src/store/actions/*"],
+      "@style/*": ["src/style/*"],
+      "@config/*": ["configuration/*"],
+      "@src/*": ["src/*"]
+    },
+    "module": "commonjs",
+    "target": "es6"
+  },
+  "exclude": ["node_modules"]
+}
