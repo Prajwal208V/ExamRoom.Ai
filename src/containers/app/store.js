@@ -52,14 +52,14 @@ export const reduxStorage = {
 };
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage: reduxStorage,
-  whitelist: ['auth'],
-  blacklist: ['jobs', 'stacks', 'crypto', 'forex'],
+  whitelist: ["auth", "stacks", "crypto", "forex"],
+  blacklist: ["jobs"],
   version: PERSIST_VERSION,
-  migrate: createMigrate(storeMigration, {debug: true}),
+  migrate: createMigrate(storeMigration, { debug: true }),
   transforms: [initializeTransformer, reduxEncryption],
-};
+}
 
 // Middleware: Redux Persist Persisted Reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);

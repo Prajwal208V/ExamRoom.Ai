@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native"
-import React, { useState, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import IrisTheme from "../../../common/Iris/Styles/IrisTheme"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchCrypto } from "../../../store/slices/Trends/CryptoSlice"
@@ -29,23 +29,26 @@ const CryptoGraph = () => {
     }
   }, [cryptoData?.error])
 
-  const fetchData = (type) => {
-    setSelectedFun(type)
-    if (type === "Daily") {
-      if (!(cryptoData?.cryptoDaysData?.length > 0)) {
-        dispatch(fetchCrypto({ type: "Daily" }))
-      }
-    } else if (type === "weekly") {
-      if (!(cryptoData?.cryptoWeeksData?.length > 0)) {
-        dispatch(fetchCrypto({ type: "weekly" }))
-      }
-    } else if (type === "monthly") {
-      if (!(cryptoData?.cryptoMonthsData?.length > 0)) {
-        dispatch(fetchCrypto({ type: "monthly" }))
-      }
-    }
-  }
-  console.log("cryptoDaysData", JSON.stringify(cryptoData?.cryptoDaysData))
+  // const fetchData = useCallback(
+  //   (type) => {
+  //     setSelectedFun(type)
+  //     if (type === "Daily") {
+  //       if (!(cryptoData?.cryptoDaysData?.length > 0)) {
+  //         dispatch(fetchCrypto({ type: "Daily" }))
+  //       }
+  //     } else if (type === "weekly") {
+  //       if (!(cryptoData?.cryptoWeeksData?.length > 0)) {
+  //         dispatch(fetchCrypto({ type: "weekly" }))
+  //       }
+  //     } else if (type === "monthly") {
+  //       if (!(cryptoData?.cryptoMonthsData?.length > 0)) {
+  //         dispatch(fetchCrypto({ type: "monthly" }))
+  //       }
+  //     }
+  //   },
+  //   [type]
+  // )
+  console.log("cryptoDaysData", JSON.stringify(cryptoData))
 
   return (
     <View style={styles.container}>
@@ -75,7 +78,7 @@ const CryptoGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("Daily")}
+          onPress={() => setSelectedFun("Daily")}
         >
           <Text
             style={[
@@ -96,7 +99,7 @@ const CryptoGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("weekly")}
+          onPress={() => setSelectedFun("weekly")}
         >
           <Text
             style={[
@@ -117,7 +120,7 @@ const CryptoGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("monthly")}
+          onPress={() => setSelectedFun("monthly")}
         >
           <Text
             style={[

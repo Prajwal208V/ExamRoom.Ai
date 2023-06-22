@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native"
-import React, { useState, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import IrisTheme from "../../../common/Iris/Styles/IrisTheme"
 import { fetchForex } from "../../../store/slices/Trends/ForexSlice"
 import DeviceInfo from "react-native-device-info"
@@ -22,6 +22,7 @@ const ForexGraph = () => {
   const [hoursData, setHoursData] = useState([])
   const [weeksData, setWeeksData] = useState([])
   const [monthsData, setMonthsData] = useState([])
+
   useEffect(() => {
     setfecthError(forexData?.error)
     if (forexData?.error !== "") {
@@ -29,29 +30,125 @@ const ForexGraph = () => {
     }
   }, [forexData?.error])
 
-  console.log("forexDataforexData", JSON.stringify(forexData?.forexOneHourData))
   const [selectedFun, setSelectedFun] = useState("oneHour")
-
-  const fetchData = (type) => {
-    setSelectedFun(type)
-    if (type === "oneHour") {
-      if (!(forexData?.forexOneHourData?.length > 0)) {
-        dispatch(fetchForex({ type: "oneHour" }))
+  useEffect(() => {
+    if (
+      selectedFun === "oneHour" &&
+      forexData?.forexOneHourData?.length > 0 &&
+      minutesData?.length === 0
+    ) {
+      let graphData = forexData?.forexOneHourData
+        ?.filter((item, ind) => ind <= 59)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            console.log("indind", ind)
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setMinutesData(graphData)
       }
-    } else if (type === "hourly") {
-      if (!(forexData?.forexHoursData?.length > 0)) {
-        dispatch(fetchForex({ type: "hourly" }))
+    } else if (
+      selectedFun === "hourly" &&
+      forexData?.forexHoursData?.length > 0 &&
+      hoursData?.length === 0
+    ) {
+      let graphData = forexData?.forexHoursData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setHoursData(graphData)
       }
-    } else if (type === "weekly") {
-      if (!(forexData?.forexWeeksData?.length > 0)) {
-        dispatch(fetchForex({ type: "weekly" }))
+    } else if (
+      selectedFun === "weekly" &&
+      forexData?.forexWeeksData?.length > 0 &&
+      weeksData?.length === 0
+    ) {
+      let graphData = forexData?.forexWeeksData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setWeeksData(graphData)
       }
-    } else if (type === "montly") {
-      if (!(forexData?.forexMonthsData?.length > 0)) {
-        dispatch(fetchForex({ type: "montly" }))
+    } else if (
+      selectedFun === "montly" &&
+      forexData?.forexMonthsData?.length > 0 &&
+      monthsData?.length === 0
+    ) {
+      let graphData = forexData?.forexMonthsData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setMonthsData(graphData)
       }
     }
-  }
+  }, [
+    selectedFun,
+    forexData?.forexOneHourData,
+    forexData?.forexHoursData,
+    forexData?.forexWeeksData,
+    forexData?.forexMonthsData,
+  ])
+
+  // const fetchData = useCallback(
+  //   (type) => {
+  //     setSelectedFun(type)
+  //     if (type === "oneHour") {
+  //       if (!(forexData?.forexOneHourData?.length > 0)) {
+  //         dispatch(fetchForex({ type: "oneHour" }))
+  //       }
+  //     } else if (type === "hourly") {
+  //       if (!(forexData?.forexHoursData?.length > 0)) {
+  //         dispatch(fetchForex({ type: "hourly" }))
+  //       }
+  //     } else if (type === "weekly") {
+  //       if (!(forexData?.forexWeeksData?.length > 0)) {
+  //         dispatch(fetchForex({ type: "weekly" }))
+  //       }
+  //     } else if (type === "montly") {
+  //       if (!(forexData?.forexMonthsData?.length > 0)) {
+  //         dispatch(fetchForex({ type: "montly" }))
+  //       }
+  //     }
+  //   },
+  //   [type]
+  // )
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -66,9 +163,22 @@ const ForexGraph = () => {
       </View>
       <View style={styles.header2}>
         <Text style={styles.price}>$12.67345</Text>
-        <Text style={styles.pres}>{`+ 10.254 (9.77%)`}</Text>
+        <Text style={styles.pres}>{`+ 10.254`}</Text>
       </View>
-      <TrendsModal />
+      <TrendsModal
+        data={
+          selectedFun === "oneHour"
+            ? minutesData
+            : selectedFun === "hourly"
+            ? hoursData
+            : selectedFun === "weekly"
+            ? weeksData
+            : selectedFun === "montly"
+            ? monthsData
+            : []
+        }
+        selectedFun={selectedFun}
+      />
       <View style={styles.selectionCon}>
         <TouchableOpacity
           style={[
@@ -80,7 +190,7 @@ const ForexGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("oneHour")}
+          onPress={() => setSelectedFun("oneHour")}
         >
           <Text
             style={[
@@ -101,7 +211,7 @@ const ForexGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("hourly")}
+          onPress={() => setSelectedFun("hourly")}
         >
           <Text
             style={[
@@ -122,7 +232,7 @@ const ForexGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("weekly")}
+          onPress={() => setSelectedFun("weekly")}
         >
           <Text
             style={[
@@ -143,7 +253,7 @@ const ForexGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("montly")}
+          onPress={() => setSelectedFun("montly")}
         >
           <Text
             style={[

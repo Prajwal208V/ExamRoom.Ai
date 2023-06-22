@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
-import IrisTheme from '../../../common/Iris/Styles/IrisTheme';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useState, useEffect, useCallback } from "react"
+import IrisTheme from "../../../common/Iris/Styles/IrisTheme"
+import { useSelector, useDispatch } from "react-redux"
 import { fetchStack } from "../../../store/slices/Trends/StackSlice"
 import Toast from "react-native-simple-toast"
 import TrendsModal from "./helper"
@@ -25,7 +25,103 @@ const StackGraph = () => {
   const [weeksData, setWeeksData] = useState([])
   const [monthsData, setMonthsData] = useState([])
 
-  console.log("stackOneHourData", JSON.stringify(stackData?.stackOneHourData))
+  console.log("stackOneHourData", JSON.stringify(stackData?.stackMonthsData))
+
+  useEffect(() => {
+    if (
+      selectedFun === "oneHour" &&
+      stackData?.stackOneHourData?.length > 0 &&
+      minutesData?.length === 0
+    ) {
+      let graphData = stackData?.stackOneHourData
+        ?.filter((item, ind) => ind <= 59)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            console.log("indind", ind)
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setMinutesData(graphData)
+      }
+    } else if (
+      selectedFun === "hourly" &&
+      stackData?.stackHoursData?.length > 0 &&
+      hoursData?.length === 0
+    ) {
+      let graphData = stackData?.stackHoursData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setHoursData(graphData)
+      }
+    } else if (
+      selectedFun === "weekly" &&
+      stackData?.stackWeeksData?.length > 0 &&
+      weeksData?.length === 0
+    ) {
+      let graphData = stackData?.stackWeeksData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      if (graphData.length > 0) {
+        setWeeksData(graphData)
+      }
+    } else if (
+      selectedFun === "montly" &&
+      stackData?.stackMonthsData?.length > 0 &&
+      monthsData?.length === 0
+    ) {
+      let graphData = stackData?.stackMonthsData
+        ?.filter((item, ind) => ind <= 100)
+        ?.map((item, ind) => {
+          let xValue = parseFloat(item?.data?.["1. open"])
+          if (!isNaN(xValue)) {
+            let minuteObj = { x: item?.timeStam, y: xValue }
+            return minuteObj
+          }
+        })
+        .sort(
+          (stk1, stk2) =>
+            new Date(stk1.x).getTime() - new Date(stk2.x).getTime()
+        )
+      console.log("graphData", graphData, graphData?.length)
+      if (graphData.length > 0) {
+        setMonthsData(graphData)
+      }
+    }
+  }, [
+    selectedFun,
+    stackData?.stackOneHourData,
+    stackData?.stackHoursData,
+    stackData?.stackWeeksData,
+    stackData?.stackMonthsData,
+  ])
 
   useEffect(() => {
     setfecthError(stackData?.error)
@@ -33,27 +129,29 @@ const StackGraph = () => {
       Toast.show(stackData?.error, Platform.OS === "android" ? 0.5 : 1)
     }
   }, [stackData?.error])
-
-  const fetchData = (type) => {
-    setSelectedFun(type)
-    if (type === "oneHour") {
-      if (!(stackData?.stackOneHourData?.length > 0)) {
-        dispatch(fetchStack({ type: "oneHour" }))
-      }
-    } else if (type === "hourly") {
-      if (!(stackData?.stackHoursData?.length > 0)) {
-        dispatch(fetchStack({ type: "hourly" }))
-      }
-    } else if (type === "weekly") {
-      if (!(stackData?.stackWeeksData?.length > 0)) {
-        dispatch(fetchStack({ type: "weekly" }))
-      }
-    } else if (type === "montly") {
-      if (!(stackData?.stackMonthsData?.length > 0)) {
-        dispatch(fetchStack({ type: "montly" }))
-      }
-    }
-  }
+  const fetchData = () => {}
+  // const fetchData = useCallback(
+  //   (selectedFun) => {
+  //     if (selectedFun === "oneHour") {
+  //       if (!(stackData?.stackOneHourData?.length > 0)) {
+  //         dispatch(fetchStack({ type: "oneHour" }))
+  //       }
+  //     } else if (selectedFun === "hourly") {
+  //       if (!(stackData?.stackHoursData?.length > 0)) {
+  //         dispatch(fetchStack({ type: "hourly" }))
+  //       }
+  //     } else if (selectedFun === "weekly") {
+  //       if (!(stackData?.stackWeeksData?.length > 0)) {
+  //         dispatch(fetchStack({ type: "weekly" }))
+  //       }
+  //     } else if (selectedFun === "montly") {
+  //       if (!(stackData?.stackMonthsData?.length > 0)) {
+  //         dispatch(fetchStack({ type: "montly" }))
+  //       }
+  //     }
+  //   },
+  //   [selectedFun]
+  // )
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -68,9 +166,22 @@ const StackGraph = () => {
       </View>
       <View style={styles.header2}>
         <Text style={styles.price}>$430.098</Text>
-        <Text style={styles.pres}>{`+ 140.254 (23.77%)`}</Text>
+        <Text style={styles.pres}>{`+ 140.254`}</Text>
       </View>
-      <TrendsModal />
+      <TrendsModal
+        data={
+          selectedFun === "oneHour"
+            ? minutesData
+            : selectedFun === "hourly"
+            ? hoursData
+            : selectedFun === "weekly"
+            ? weeksData
+            : selectedFun === "montly"
+            ? monthsData
+            : []
+        }
+        selectedFun={selectedFun}
+      />
       <View style={styles.selectionCon}>
         <TouchableOpacity
           style={[
@@ -82,7 +193,10 @@ const StackGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("oneHour")}
+          onPress={() => {
+            setSelectedFun("oneHour")
+            fetchData()
+          }}
         >
           <Text
             style={[
@@ -103,7 +217,10 @@ const StackGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("hourly")}
+          onPress={() => {
+            setSelectedFun("hourly")
+            fetchData()
+          }}
         >
           <Text
             style={[
@@ -124,7 +241,10 @@ const StackGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("weekly")}
+          onPress={() => {
+            setSelectedFun("weekly")
+            fetchData()
+          }}
         >
           <Text
             style={[
@@ -145,7 +265,10 @@ const StackGraph = () => {
                 }
               : {},
           ]}
-          onPress={() => fetchData("montly")}
+          onPress={() => {
+            setSelectedFun("montly")
+            fetchData()
+          }}
         >
           <Text
             style={[

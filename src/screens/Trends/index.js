@@ -7,37 +7,60 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import React, {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import IrisTheme from '../../common/Iris/Styles/IrisTheme';
-import IrisModal from '../../common/Iris/Component/Modal/index';
-import MarketGraph from './Graphs';
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import IrisTheme from "../../common/Iris/Styles/IrisTheme"
+import IrisModal from "../../common/Iris/Component/Modal/index"
+import MarketGraph from "./Graphs"
+import { fetchCrypto } from "../../store/slices/Trends/CryptoSlice"
+import { fetchForex } from "../../store/slices/Trends/ForexSlice"
+import { fetchStack } from "../../store/slices/Trends/StackSlice"
 
-const {height} = Dimensions.get('window');
-const TrendsScreen = props => {
-  const stackData = useSelector(state => state.stacks);
-  const forexData = useSelector(state => state.forex);
-  const cryptoData = useSelector(state => state.crypto);
-  const [isModalOpen, setIsModalClose] = useState(false);
-  const [selectedMarket, setSelectedMarket] = useState('');
+const { height } = Dimensions.get("window")
+const TrendsScreen = (props) => {
+  const stackData = useSelector((state) => state.stacks)
+  const forexData = useSelector((state) => state.forex)
+  const cryptoData = useSelector((state) => state.crypto)
+  const [isModalOpen, setIsModalClose] = useState(false)
+  const [selectedMarket, setSelectedMarket] = useState("")
 
   console.log(
-    ' stackData',
-    JSON.stringify(stackData?.stackOneHourData?.[0]?.data?.['1. open']),
-  );
+    " stackData",
+    JSON.stringify(stackData?.stackOneHourData?.[0]?.data?.["1. open"])
+  )
   console.log(
-    ' forexData',
-    JSON.stringify(forexData?.forexOneHourData?.[0]?.data?.['1. open']),
-  );
+    " forexData",
+    JSON.stringify(forexData?.forexOneHourData?.[0]?.data?.["1. open"])
+  )
   console.log(
-    'cryptoData',
-    JSON.stringify(cryptoData?.cryptoDaysData?.[0]?.data?.['1b. open (USD)']),
-  );
+    "cryptoData",
+    JSON.stringify(cryptoData?.cryptoDaysData?.[0]?.data?.["1b. open (USD)"])
+  )
+
+  const dispatch = useDispatch()
+  const forexMonthsData = useSelector((state) => state.forex?.forexMonthsData)
+  const stackMonthsData = useSelector((state) => state.stacks?.stackMonthsData)
+  const forexWeeksData = useSelector((state) => state.forex?.forexWeeksData)
+  const forexHoursData = useSelector((state) => state.forex?.forexHoursData)
+  useEffect(() => {
+    if (stackMonthsData?.length === 0) {
+      dispatch(fetchStack({ type: "montly" }))
+    }
+    if (forexMonthsData?.length === 0) {
+      dispatch(fetchForex({ type: "montly" }))
+    }
+    if (forexWeeksData?.length === 0) {
+      dispatch(fetchForex({ type: "weekly" }))
+    }
+    if (forexHoursData?.length === 0) {
+      dispatch(fetchForex({ type: "hourly" }))
+    }
+  }, [stackMonthsData, forexMonthsData, forexWeeksData, forexHoursData])
 
   const onClose = () => {
-    setIsModalClose(false);
-    setSelectedMarket('');
-  };
+    setIsModalClose(false)
+    setSelectedMarket("")
+  }
   return (
     <SafeAreaView style={styles.JobPortalScreenWrap}>
       <View style={styles.coinsHeader}>
@@ -45,24 +68,26 @@ const TrendsScreen = props => {
       </View>
       <View style={styles.valueBox}>
         <View style={styles.insideBox}>
-          <Text style={{color: 'white', fontSize: 12}}>Total Value</Text>
+          <Text style={{ color: "white", fontSize: 12 }}>Total Value</Text>
           <Text
             style={{
-              color: 'white',
+              color: "white",
               fontSize: 23,
-              fontWeight: '600',
+              fontWeight: "600",
               letterSpacing: 1,
-            }}>
+            }}
+          >
             $<Text>524.00</Text>
           </Text>
         </View>
-        <View style={{marginTop: 30, marginBottom: 20}}>
+        <View style={{ marginTop: 30, marginBottom: 20 }}>
           <Text
             style={{
               color: IrisTheme.BG500,
-              fontWeight: '500',
+              fontWeight: "500",
               letterSpacing: 1,
-            }}>
+            }}
+          >
             List of Coins
           </Text>
         </View>
@@ -70,12 +95,13 @@ const TrendsScreen = props => {
           <TouchableOpacity
             style={styles.mainBox}
             onPress={() => {
-              setIsModalClose(true);
-              setSelectedMarket('Forex');
-            }}>
+              setIsModalClose(true)
+              setSelectedMarket("Forex")
+            }}
+          >
             <View>
               <Image
-                source={require('../../assets/image/forex.png')}
+                source={require("../../assets/image/forex.png")}
                 style={styles.logo}
               />
             </View>
@@ -85,11 +111,11 @@ const TrendsScreen = props => {
             </View>
             <View style={styles.padRight}>
               <Text style={styles.tiile}>
-                {' '}
+                {" "}
                 {`$ ${
-                  forexData?.forexOneHourData?.[0]?.data?.['1. open']
+                  forexData?.forexOneHourData?.[0]?.data?.["1. open"]
                     ? parseFloat(
-                        forexData?.forexOneHourData?.[0]?.data?.['1. open'],
+                        forexData?.forexOneHourData?.[0]?.data?.["1. open"]
                       )
                     : 12.67345
                 }`}
@@ -99,12 +125,13 @@ const TrendsScreen = props => {
           <TouchableOpacity
             style={styles.mainBox}
             onPress={() => {
-              setIsModalClose(true);
-              setSelectedMarket('Stocks');
-            }}>
+              setIsModalClose(true)
+              setSelectedMarket("Stocks")
+            }}
+          >
             <View>
               <Image
-                source={require('../../assets/image/stock.png')}
+                source={require("../../assets/image/stock.png")}
                 style={styles.logo}
               />
             </View>
@@ -115,9 +142,9 @@ const TrendsScreen = props => {
             <View style={styles.padRight}>
               <Text style={styles.tiile}>
                 {`$ ${
-                  stackData?.stackOneHourData?.[0]?.data?.['1. open']
+                  stackData?.stackOneHourData?.[0]?.data?.["1. open"]
                     ? parseFloat(
-                        stackData?.stackOneHourData?.[0]?.data?.['1. open'],
+                        stackData?.stackOneHourData?.[0]?.data?.["1. open"]
                       )
                     : 430.098
                 }`}
@@ -127,12 +154,13 @@ const TrendsScreen = props => {
           <TouchableOpacity
             style={styles.mainBox}
             onPress={() => {
-              setIsModalClose(true);
-              setSelectedMarket('Cryptocurrency');
-            }}>
+              setIsModalClose(true)
+              setSelectedMarket("Cryptocurrency")
+            }}
+          >
             <View>
               <Image
-                source={require('../../assets/image/cryptoCion.png')}
+                source={require("../../assets/image/cryptoCion.png")}
                 style={styles.logo}
               />
             </View>
@@ -142,9 +170,9 @@ const TrendsScreen = props => {
             </View>
             <View style={styles.padRight}>
               <Text style={styles.tiile}>{`$ ${
-                cryptoData?.cryptoDaysData?.[0]?.data?.['1b. open (USD)']
+                cryptoData?.cryptoDaysData?.[0]?.data?.["1b. open (USD)"]
                   ? parseFloat(
-                      cryptoData?.cryptoDaysData?.[0]?.data?.['1b. open (USD)'],
+                      cryptoData?.cryptoDaysData?.[0]?.data?.["1b. open (USD)"]
                     )
                   : 230.456
               }`}</Text>
@@ -159,13 +187,14 @@ const TrendsScreen = props => {
           onClose={onClose}
           paddingTop={height * 0.02}
           headColor="white"
-          closeButton={false}>
+          closeButton={false}
+        >
           <MarketGraph type={selectedMarket} />
         </IrisModal>
       ) : null}
     </SafeAreaView>
-  );
-};
+  )
+}
 
 export default TrendsScreen;
 

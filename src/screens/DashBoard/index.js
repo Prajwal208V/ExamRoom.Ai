@@ -62,8 +62,11 @@ const TabNavigator = (props) => {
   const dispatch = useDispatch()
   const cryptoDailyData = useSelector((state) => state.crypto?.cryptoDaysData)
   const forexoneHourData = useSelector((state) => state.forex?.forexOneHourData)
-  const stackoneHourData = useSelector((state) => state.stacks?.stackHoursData)
-
+  const stackoneHourData = useSelector(
+    (state) => state.stacks?.stackOneHourData
+  )
+  const stackHoursData = useSelector((state) => state?.stacks?.stackHoursData)
+  const stackWeeksData = useSelector((state) => state?.stacks?.stackWeeksData)
   useEffect(() => {
     if (cryptoDailyData?.length === 0) {
       dispatch(fetchCrypto({ type: "Daily" }))
@@ -74,7 +77,19 @@ const TabNavigator = (props) => {
     if (stackoneHourData?.length === 0) {
       dispatch(fetchStack({ type: "oneHour" }))
     }
-  }, [cryptoDailyData, forexoneHourData, stackoneHourData])
+    if (stackHoursData?.length === 0) {
+      dispatch(fetchStack({ type: "hourly" }))
+    }
+    if (stackWeeksData?.length === 0) {
+      dispatch(fetchStack({ type: "weekly" }))
+    }
+  }, [
+    cryptoDailyData,
+    forexoneHourData,
+    stackoneHourData,
+    stackHoursData,
+    stackWeeksData,
+  ])
   return (
     <>
       <Tab.Navigator
