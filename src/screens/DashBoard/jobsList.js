@@ -183,9 +183,13 @@ const JobList = (props) => {
                       fontSize: 10,
                       fontWeight: "400",
                     }}
-                  >{`${item?.job_city ? item?.job_city : ""}, ${
-                    item?.job_state ? item?.job_state : ""
-                  }, ${item?.job_country ? item?.job_country : ""}`}</Text>
+                  >{`${
+                    particularJob?.job_city ? particularJob?.job_city : ""
+                  }, ${
+                    particularJob?.job_state ? particularJob?.job_state : ""
+                  }, ${
+                    particularJob?.job_country ? particularJob?.job_country : ""
+                  }`}</Text>
                 </View>
               </View>
               <View style={{ marginLeft: 0, marginTop: 10 }}>
