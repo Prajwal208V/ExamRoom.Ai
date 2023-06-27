@@ -141,7 +141,7 @@ const TrendsModal = ({ data, selectedFun }) => {
           <Text style={{ color: "#2B2A3A", fontSize: 12 }}>
             {selectedFun === "oneHour" || selectedFun === "hourly"
               ? moment(activePoint?.x).format("HH:mm")
-              : selectedFun === "weekly" || selectedFun === "monthly"
+              : selectedFun === "weekly" || selectedFun === "montly"
               ? moment(activePoint?.x).format("DD-MM-YYYY")
               : null}
           </Text>
@@ -234,7 +234,7 @@ const TrendsModal = ({ data, selectedFun }) => {
                 tickFormat={(y) => {
                   selectedFun === "oneHour" || selectedFun === "hourly"
                     ? moment(y).format("HH:mm")
-                    : selectedFun === "weekly" || selectedFun === "monthly"
+                    : selectedFun === "weekly" || selectedFun === "montly"
                     ? moment(y).format("DD-MM-YYYY")
                     : null
                 }}

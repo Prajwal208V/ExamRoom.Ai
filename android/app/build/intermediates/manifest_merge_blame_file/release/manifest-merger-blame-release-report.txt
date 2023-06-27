@@ -6,140 +6,140 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml
+8-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="33" />
-9-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml
+9-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:3:5-67
-11-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:3:22-64
+11-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:3:22-64
 12    <!--
 13         Required to keep CPU alive while downloading files
 14        (NOT to keep screen awake)
 15    -->
 16    <uses-permission android:name="android.permission.WAKE_LOCK" />
-16-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:5-68
-16-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:22-65
+16-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:5-68
+16-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:22-65
 17    <!--
 18         Required to poll the state of the network connection
 19        and respond to changes
 20    -->
 21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required to check whether Wi-Fi is enabled -->
-21-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:5-79
-21-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:22-76
+21-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:5-79
+21-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:22-76
 22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Required to read and write the expansion files on shared storage -->
-22-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:5-76
-22-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:22-73
+22-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:5-76
+22-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:22-73
 23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Required to read and write the expansion files on shared storage for Android 11 -->
-23-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:5-81
-23-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:22-78
+23-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:5-81
+23-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:22-78
 24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Required to to download files without a notification -->
-24-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:5-80
-24-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:22-77
+24-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:5-80
+24-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:22-77
 25    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-25-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:5-88
-25-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:22-85
+25-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:5-88
+25-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:22-85
 26    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-26-->[com.google.android.gms:play-services-iid:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/aa15ce03c52c435589e2bfad426f36e0/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
-26-->[com.google.android.gms:play-services-iid:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/aa15ce03c52c435589e2bfad426f36e0/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
+26-->[com.google.android.gms:play-services-iid:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/dffb27be4cbd6ef9a5dfc6ee4fd5c4cc/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+26-->[com.google.android.gms:play-services-iid:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/dffb27be4cbd6ef9a5dfc6ee4fd5c4cc/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
 27    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-27-->[com.android.installreferrer:installreferrer:1.1.2] /Users/prajwalv/.gradle/caches/transforms-3/33f778786e855dbb28b152a09657a3b6/transformed/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
-27-->[com.android.installreferrer:installreferrer:1.1.2] /Users/prajwalv/.gradle/caches/transforms-3/33f778786e855dbb28b152a09657a3b6/transformed/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
+27-->[com.android.installreferrer:installreferrer:1.1.2] /Users/prajwalv/.gradle/caches/transforms-3/5e59af09e7f5f8aa5e82decc1b8b9cae/transformed/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
+27-->[com.android.installreferrer:installreferrer:1.1.2] /Users/prajwalv/.gradle/caches/transforms-3/5e59af09e7f5f8aa5e82decc1b8b9cae/transformed/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
 28
 29    <application
-29-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:5:5-23:19
+29-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:5:5-23:19
 30        android:name="com.examroom.MainApplication"
-30-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:6:7-38
+30-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:6:7-38
 31        android:allowBackup="false"
-31-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:9:7-34
+31-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:9:7-34
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-32-->[androidx.core:core:1.7.0] /Users/prajwalv/.gradle/caches/transforms-3/c05df83dbc847297b7ccad2bb18337e0/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+32-->[androidx.core:core:1.7.0] /Users/prajwalv/.gradle/caches/transforms-3/2705c313015111f9861dc4514e5ec399/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 33        android:icon="@mipmap/ic_launcher"
-33-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:8:7-41
+33-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:8:7-41
 34        android:label="@string/app_name"
-34-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:7:7-39
+34-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:7:7-39
 35        android:theme="@style/AppTheme" >
-35-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:10:7-38
+35-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:10:7-38
 36        <activity
-36-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:11:7-22:18
+36-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:11:7-22:18
 37            android:name="com.examroom.MainActivity"
-37-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:12:9-37
+37-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:12:9-37
 38            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-38-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:14:9-118
+38-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:14:9-118
 39            android:exported="true"
-39-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:17:9-32
+39-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:17:9-32
 40            android:label="@string/app_name"
-40-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:13:9-41
+40-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:13:9-41
 41            android:launchMode="singleTask"
-41-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:15:9-40
+41-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:15:9-40
 42            android:windowSoftInputMode="adjustResize" >
-42-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:16:9-51
+42-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:16:9-51
 43            <intent-filter>
-43-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:18:9-21:25
+43-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:18:9-21:25
 44                <action android:name="android.intent.action.MAIN" />
-44-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:19:13-65
-44-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:19:21-62
+44-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:19:13-65
+44-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:19:21-62
 45
 46                <category android:name="android.intent.category.LAUNCHER" />
-46-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:20:13-73
-46-->/Users/prajwalv/Public/ExamRoom/android/app/src/main/AndroidManifest.xml:20:23-70
+46-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:20:13-73
+46-->/Users/prajwalv/Public/ExamRoom.Ai/android/app/src/main/AndroidManifest.xml:20:23-70
 47            </intent-filter>
 48        </activity>
 49
 50        <provider
-50-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-45:20
+50-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-45:20
 51            android:name="com.ReactNativeBlobUtil.Utils.FileProvider"
-51-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-70
+51-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-70
 52            android:authorities="com.examroom.provider"
-52-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-60
+52-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-60
 53            android:exported="false"
-53-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-37
+53-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-37
 54            android:grantUriPermissions="true" >
-54-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:13-47
+54-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:13-47
 55            <meta-data
-55-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:13-44:58
+55-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:13-44:58
 56                android:name="android.support.FILE_PROVIDER_PATHS"
-56-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:43:17-67
+56-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:43:17-67
 57                android:resource="@xml/provider_paths" />
-57-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:44:17-55
+57-->[:react-native-blob-util] /Users/prajwalv/Public/ExamRoom.Ai/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:44:17-55
 58        </provider>
 59
 60        <activity
-60-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/9750fdf11d04840edb4b2953fa4a5628/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+60-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/37babf39e2320ff92c8ad8eebdffd73b/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
 61            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-61-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/9750fdf11d04840edb4b2953fa4a5628/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+61-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/37babf39e2320ff92c8ad8eebdffd73b/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
 62            android:exported="false"
-62-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/9750fdf11d04840edb4b2953fa4a5628/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+62-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/37babf39e2320ff92c8ad8eebdffd73b/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
 63            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-63-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/9750fdf11d04840edb4b2953fa4a5628/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+63-->[com.google.android.gms:play-services-base:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/37babf39e2320ff92c8ad8eebdffd73b/transformed/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
 64
 65        <meta-data
-65-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/2fb9c160b591406cfe0c4069185d5f34/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+65-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/ab5a9996a814fdcd8dc8fb229348a47b/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
 66            android:name="com.google.android.gms.version"
-66-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/2fb9c160b591406cfe0c4069185d5f34/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+66-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/ab5a9996a814fdcd8dc8fb229348a47b/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
 67            android:value="@integer/google_play_services_version" />
-67-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/2fb9c160b591406cfe0c4069185d5f34/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+67-->[com.google.android.gms:play-services-basement:17.0.0] /Users/prajwalv/.gradle/caches/transforms-3/ab5a9996a814fdcd8dc8fb229348a47b/transformed/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 68
 69        <provider
-69-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+69-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
 70            android:name="androidx.startup.InitializationProvider"
-70-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+70-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
 71            android:authorities="com.examroom.androidx-startup"
-71-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+71-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
 72            android:exported="false" >
-72-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+72-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
 73            <meta-data
-73-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+73-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
 74                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-74-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+74-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
 75                android:value="androidx.startup" />
-75-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/f1880cf4497a0a81e315b120458930c1/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+75-->[androidx.emoji2:emoji2:1.0.0] /Users/prajwalv/.gradle/caches/transforms-3/8b27f546897a686845ad317174a68b4f/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
 76            <meta-data
-76-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/d734cd817a6eba2dc56ecab0ed4b46f1/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+76-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/8769c579f81ee26b45c9ae3b0861e44a/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
 77                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-77-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/d734cd817a6eba2dc56ecab0ed4b46f1/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+77-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/8769c579f81ee26b45c9ae3b0861e44a/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
 78                android:value="androidx.startup" />
-78-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/d734cd817a6eba2dc56ecab0ed4b46f1/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+78-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/prajwalv/.gradle/caches/transforms-3/8769c579f81ee26b45c9ae3b0861e44a/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
 79        </provider>
 80    </application>
 81

@@ -185,7 +185,7 @@ const TrendsScreen = (props) => {
           title={selectedMarket}
           isVisible={isModalOpen}
           onClose={onClose}
-          paddingTop={height * 0.02}
+          paddingTop={height * 0.04}
           headColor="white"
           closeButton={false}
         >

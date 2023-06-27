@@ -1,15 +1,15 @@
 [
     {
-        "merged": "com.examroom.app-merged_res-33:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.examroom.app-main-34:/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_cryptocion.png.flat",
         "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_cryptocion.png"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_logoimage.png.flat",
         "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_logoimage.png"
+    },
+    {
+        "merged": "com.examroom.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.jpg.flat",
+        "source": "com.examroom.app-main-34:/mipmap-xxxhdpi/ic_launcher.jpg"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_node_modules_reactnativepaper_src_assets_backchevron.png.flat",
@@ -24,16 +24,16 @@
         "source": "com.examroom.app-react-28:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
+        "merged": "com.examroom.app-merged_res-33:/mipmap-mdpi_ic_launcher.jpg.flat",
+        "source": "com.examroom.app-main-34:/mipmap-mdpi/ic_launcher.jpg"
+    },
+    {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_jobimageplaceholder.png.flat",
         "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_jobimageplaceholder.png"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_logo.png.flat",
         "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_logo.png"
-    },
-    {
-        "merged": "com.examroom.app-merged_res-33:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.examroom.app-main-34:/mipmap-hdpi/ic_launcher.png"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_node_modules_reactnativeratings_dist_images_rocket.png.flat",
@@ -44,12 +44,8 @@
         "source": "com.examroom.app-react-28:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
-        "merged": "com.examroom.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.examroom.app-main-34:/mipmap-xxxhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "com.examroom.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.examroom.app-main-34:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.examroom.app-merged_res-33:/mipmap-xhdpi_ic_launcher.jpg.flat",
+        "source": "com.examroom.app-main-34:/mipmap-xhdpi/ic_launcher.jpg"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
@@ -68,8 +64,16 @@
         "source": "com.examroom.app-react-28:/drawable-xxxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
+        "merged": "com.examroom.app-merged_res-33:/mipmap-hdpi_ic_launcher.jpg.flat",
+        "source": "com.examroom.app-main-34:/mipmap-hdpi/ic_launcher.jpg"
+    },
+    {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_forex.png.flat",
         "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_forex.png"
+    },
+    {
+        "merged": "com.examroom.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.jpg.flat",
+        "source": "com.examroom.app-main-34:/mipmap-xxhdpi/ic_launcher.jpg"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable_rn_edit_text_material.xml.flat",
@@ -80,8 +84,8 @@
         "source": "com.examroom.app-react-28:/drawable-mdpi/node_modules_reactnativeratings_dist_images_star.png"
     },
     {
-        "merged": "com.examroom.app-merged_res-33:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.examroom.app-main-34:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_src_assets_image_noresultfundlogo.png.flat",
+        "source": "com.examroom.app-react-28:/drawable-mdpi/src_assets_image_noresultfundlogo.png"
     },
     {
         "merged": "com.examroom.app-merged_res-33:/drawable-mdpi_node_modules_reactnativeratings_dist_images_airbnbstar.png.flat",

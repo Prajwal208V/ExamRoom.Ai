@@ -4,7 +4,7 @@
             "outputFile": "com.examroom.app-mergeReleaseResources-31:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/0719b87c056b907d84ca9a0c40cc4291/transformed/appcompat-1.4.1/res/values-v16/values-v16.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/3518f3883f023f28e95f4aa3062b9a27/transformed/appcompat-1.4.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/c05df83dbc847297b7ccad2bb18337e0/transformed/core-1.7.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/2705c313015111f9861dc4514e5ec399/transformed/core-1.7.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -113,19 +113,19 @@ const CryptoGraph = () => {
         <TouchableOpacity
           style={[
             styles.pollbtn,
-            selectedFun === "monthly"
+            selectedFun === "montly"
               ? {
                   borderColor: IrisTheme.PRIMARY300,
                   backgroundColor: IrisTheme.BG500,
                 }
               : {},
           ]}
-          onPress={() => setSelectedFun("monthly")}
+          onPress={() => setSelectedFun("montly")}
         >
           <Text
             style={[
               styles.selectionText,
-              selectedFun === "monthly" ? { color: IrisTheme.BG000 } : {},
+              selectedFun === "montly" ? { color: IrisTheme.BG000 } : {},
             ]}
           >
             Monthly

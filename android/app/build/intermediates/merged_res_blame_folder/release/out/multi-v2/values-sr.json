@@ -4,24 +4,24 @@
             "outputFile": "com.examroom.app-mergeReleaseResources-31:/values-sr/values-sr.xml",
             "map": [
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/2fb9c160b591406cfe0c4069185d5f34/transformed/jetified-play-services-basement-17.0.0/res/values-sr/values.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/2705c313015111f9861dc4514e5ec399/transformed/core-1.7.0/res/values-sr/values-sr.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "188",
-                        "endOffsets": "435"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "37",
+                        "startLines": "48",
                         "startColumns": "4",
-                        "startOffsets": "3984",
-                        "endColumns": "188",
-                        "endOffsets": "4168"
+                        "startOffsets": "5579",
+                        "endColumns": "100",
+                        "endOffsets": "5675"
                     }
                 },
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/0719b87c056b907d84ca9a0c40cc4291/transformed/appcompat-1.4.1/res/values-sr/values-sr.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/3518f3883f023f28e95f4aa3062b9a27/transformed/appcompat-1.4.1/res/values-sr/values-sr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/9750fdf11d04840edb4b2953fa4a5628/transformed/jetified-play-services-base-17.0.0/res/values-sr/values.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/37babf39e2320ff92c8ad8eebdffd73b/transformed/jetified-play-services-base-17.0.0/res/values-sr/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/c05df83dbc847297b7ccad2bb18337e0/transformed/core-1.7.0/res/values-sr/values-sr.xml",
+                    "source": "/Users/prajwalv/.gradle/caches/transforms-3/ab5a9996a814fdcd8dc8fb229348a47b/transformed/jetified-play-services-basement-17.0.0/res/values-sr/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "188",
+                        "endOffsets": "435"
                     },
                     "to": {
-                        "startLines": "48",
+                        "startLines": "37",
                         "startColumns": "4",
-                        "startOffsets": "5579",
-                        "endColumns": "100",
-                        "endOffsets": "5675"
+                        "startOffsets": "3984",
+                        "endColumns": "188",
+                        "endOffsets": "4168"
                     }
                 }
             ]
