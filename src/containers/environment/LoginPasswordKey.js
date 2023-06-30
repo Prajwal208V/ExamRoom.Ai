@@ -1,2 +1,2 @@
-export const passwordSecretKey = 'ExamRoom';
-export const reduxEncrypt = 'ExamRoom';
+export const passwordSecretKey = "JobTradeFinder"
+export const reduxEncrypt = "JobTradeFinder"

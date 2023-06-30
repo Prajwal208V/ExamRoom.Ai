@@ -67,11 +67,12 @@ const SignupScreen = () => {
     <SafeAreaView style={styles.container}>
       <Formik
         initialValues={{
-          email: '',
-          password: '',
+          email: "",
+          password: "",
         }}
         validationSchema={LoginSchema}
-        onSubmit={onSubmit}>
+        onSubmit={onSubmit}
+      >
         {({
           values,
           touched,
@@ -82,8 +83,9 @@ const SignupScreen = () => {
           submitForm,
         }) => (
           <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : null}
-            style={styles.kbView}>
+            behavior={Platform.OS === "ios" ? "padding" : null}
+            style={styles.kbView}
+          >
             <ResetFormOnSuccess setLoading={setLoading} />
             <View style={styles.logo} />
             {/* <Text style={styles.helloTitle}> </Text> */}
@@ -93,23 +95,23 @@ const SignupScreen = () => {
             </Text>
             <IrisTextInput
               style={styles.textInput}
-              autoComplete={'email'}
-              label={'Email'}
+              autoComplete={"email"}
+              label={"Email"}
               keyboardType="email-address"
-              value={String(values?.email || '')}
-              onChangeText={text => {
-                setFieldValue('email', text.trim());
+              value={String(values?.email || "")}
+              onChangeText={(text) => {
+                setFieldValue("email", text.trim())
               }}
               onBlur={() => {
-                setFieldTouched('email', true);
+                setFieldTouched("email", true)
               }}
               error={touched?.email && errors?.email}
               noSpaces
             />
             <IrisTextInput
               style={[styles.textInput, styles.lastInput]}
-              label={'Password'}
-              autoComplete={'password'}
+              label={"Password"}
+              autoComplete={"password"}
               secureTextEntry={invisible}
               trailingIcon={() => (
                 <Pressable onPress={() => setInvisible(!invisible)}>
@@ -119,12 +121,12 @@ const SignupScreen = () => {
                   />
                 </Pressable>
               )}
-              value={String(values?.password || '')}
-              onChangeText={text => {
-                setFieldValue('password', text.trim());
+              value={String(values?.password || "")}
+              onChangeText={(text) => {
+                setFieldValue("password", text.trim())
               }}
               onBlur={() => {
-                setFieldTouched('password', true);
+                setFieldTouched("password", true)
               }}
               error={touched?.password && errors?.password}
               noSpaces
@@ -132,21 +134,22 @@ const SignupScreen = () => {
 
             <IrisButton
               disabled={loading || !isValid}
-              title={loading ? 'Signing Up...' : 'Sign Up'}
+              title={loading ? "Signing Up..." : "Sign Up"}
               height={42}
               onPress={submitForm}
             />
             {isAlredySignUp ? (
-              <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={{color: 'red', fontSize: 12}}>
+              <View style={{ alignItems: "center", marginTop: 20 }}>
+                <Text style={{ color: "red", fontSize: 12 }}>
                   {isAlredySignUp}
                 </Text>
               </View>
             ) : null}
             {keyboardHeight < 10 ? (
               <View style={styles.footerView}>
+                <Text style={{ top: 7 }}>from</Text>
                 <Image
-                  source={require('../../assets/image/Logo.png')}
+                  source={require("../../assets/image/Logo.png")}
                   style={styles.bylogo}
                 />
               </View>
@@ -155,7 +158,7 @@ const SignupScreen = () => {
         )}
       </Formik>
     </SafeAreaView>
-  );
+  )
 };
 
 const ResetFormOnSuccess = ({setLoading}) => {
@@ -181,21 +184,21 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 30,
     backgroundColor: IrisTheme.BG000,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
   kbView: {
     flex: 1,
     maxWidth: 400,
   },
   logo: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
     marginVertical: 0,
     width: 220,
     height: 150,
   },
   bylogo: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
     marginVertical: 0,
     width: 110,
     height: 50,
@@ -204,7 +207,7 @@ const styles = StyleSheet.create({
     color: IrisTheme.PRIMARY400,
     fontSize: 24,
     marginBottom: 10,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   subTitle: {
     color: IrisTheme.Text300,
@@ -218,7 +221,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   footerText: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 25,
     color: IrisTheme.Text400,
   },
@@ -226,23 +229,23 @@ const styles = StyleSheet.create({
     color: IrisTheme.PRIMARY400,
   },
   errorText: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 12,
     color: IrisTheme.RED400,
     marginVertical: 8,
   },
   forgotPasswordView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   footerView: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     right: 0,
     bottom: 10,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // flexDirection: 'row',
+    justifyContent: "center",
+    alignItems: "center",
   },
-});
+})
